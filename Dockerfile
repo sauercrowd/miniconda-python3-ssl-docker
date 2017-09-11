@@ -27,4 +27,4 @@ RUN rm /anaconda.sh
 EXPOSE 8888
 WORKDIR /home/conda/
 
-CMD ["/home/conda/anaconda3/bin/jupyter","notebook","--certfile=/home/conda/ssl/jupyter.crt","--keyfile=/home/conda/ssl/jupyter.key","--ip=0.0.0.0","--no-browser"]
+CMD ["/home/conda/miniconda3/bin/jupyter","notebook","--certfile=/home/conda/ssl/jupyter.crt","--keyfile=/home/conda/ssl/jupyter.key","--ip=0.0.0.0","--no-browser"]
