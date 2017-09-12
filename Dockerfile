@@ -19,12 +19,11 @@ RUN chmod +x /usr/bin/tini
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT ["/usr/bin/tini", "--", "/entrypoint.sh"]
-
 USER conda
 RUN /bin/bash /anaconda.sh -b
 RUN rm /anaconda.sh
+
 EXPOSE 8888
 WORKDIR /home/conda/
+ENTRYPOINT ["/usr/bin/tini", "--", "/entrypoint.sh"]
 
-CMD ["/home/conda/anaconda3/bin/jupyter","notebook","--certfile=/home/conda/ssl/jupyter.crt","--keyfile=/home/conda/ssl/jupyter.key","--ip=0.0.0.0","--no-browser"]
